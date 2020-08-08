@@ -1,0 +1,9 @@
+# /home/robert/.config/tmuxinator/home.yml
+
+name: home
+root: ~/
+pre_window: conda activate py3
+attach: true
+windows:
+  - main:
+      layout: main-vertical
