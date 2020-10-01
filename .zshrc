@@ -121,7 +121,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH=/home/robert/.gem/bin:$PATH
+export PATH=/home/robert/.gem/bin:/snap/bin:$PATH
 export EDITOR=nano
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(kubectl completion zsh)
