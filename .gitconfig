@@ -1,11 +1,13 @@
+[core]
+	excludesfile = /home/robert/.gitignore
+[credential]
+	helper = cache --timeout=3600
+[init]
+	defaultBranch = main
+[pager]
+	branch = false
+[status]
+	showuntrackedfiles = normal
 [user]
 	email = robert@drivendata.org
 	name = Robert Gibboni
-[pager]
-	branch = false
-[credential]
-	helper = cache --timeout=3600
-[status]
-	showuntrackedfiles = normal
-[core]
-	excludesfile = /home/robert/.gitignore
