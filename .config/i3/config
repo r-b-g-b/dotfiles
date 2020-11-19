@@ -195,15 +195,14 @@ workspace 10 output HDMI-0
 
 assign [class="Gnome-terminal"] $ws1
 assign [class="Emacs"] $ws2
-assign [class="keepassxc"] $ws6
+assign [class="KeePassXC"] $ws6
 assign [class="Thunderbird"] $ws7
 assign [class="Signal"] $ws7
 assign [class="Slack"] $ws8
 
 exec /usr/bin/gnome-terminal
 exec /usr/local/bin/emacs
-exec /usr/bin/keepassxc
-exec /usr/bin/thunderbird
+exec /snap/bin/keepassxc
 exec /usr/bin/signal-desktop
 exec /usr/bin/slack
 
