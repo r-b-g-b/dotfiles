@@ -68,9 +68,11 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux tmuxinator)
+plugins=(git tmux tmuxinator conda-zsh-completion)
 
 source $ZSH/oh-my-zsh.sh
+
+autoload -U compinit && compinit
 
 # User configuration
 
@@ -98,9 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-source /home/robert/.rvm/scripts/rvm
+setopt nosharehistory
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -120,5 +120,14 @@ unset __conda_setup
 export PATH=/home/robert/.gem/bin:/snap/bin:$PATH
 export EDITOR=nano
 source <(kubectl completion zsh)
+
+
+# activate the conda environment for the current directory name
+function ce() {
+  envname=$(basename $(pwd))
+  if [ ! -z $(conda env list | awk '{ print $1 }' | grep -x $envname) ]; then
+    conda activate $envname
+  fi
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
