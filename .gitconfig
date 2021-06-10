@@ -11,3 +11,5 @@
 [user]
 	email = robert@drivendata.org
 	name = Robert Gibboni
+[gpg]
+	program = gpg2
