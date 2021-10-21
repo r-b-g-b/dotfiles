@@ -223,6 +223,7 @@ workspace_layout tabbed
 
 for_window [class="qjackctl" instance="qjackctl"] floating enable
 for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
+for_window [class="zoom" instance="zoom"] floating enable
 
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
