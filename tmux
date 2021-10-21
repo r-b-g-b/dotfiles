@@ -1,5 +1,6 @@
-set-option -g renumber-windows on
 set-option -g default-shell /bin/zsh
+set-option -g renumber-windows on
+set-option -g word-separators " \/,-_+:=?"
 
 unbind-key -T copy-mode	    M-w
 bind-key   -T copy-mode	    M-w	send-keys -X copy-pipe-and-cancel "xclip -i -selection clipboard"
