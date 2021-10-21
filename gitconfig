@@ -13,3 +13,5 @@
 	name = Robert Gibboni
 [gpg]
 	program = gpg2
+[github]
+	user = r-b-g-b
