@@ -209,13 +209,13 @@ assign [class="Pavucontrol"] $ws10
 assign [class="Blueman-manager"] $ws10
 
 exec /usr/bin/gnome-terminal
-exec /usr/bin/emacs
+exec /usr/local/bin/emacs
 # exec /snap/bin/insomnia
 exec /snap/bin/keepassxc
 exec /usr/bin/signal-desktop
 exec /snap/bin/discord
-exec /usr/bin/slack
-exec /usr/bin/virtualbox
+exec /snap/bin/slack
+# exec /usr/bin/virtualbox
 exec /usr/bin/pavucontrol
 exec /usr/bin/blueman-manager
 
