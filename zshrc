@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/robert/.oh-my-zsh"
@@ -72,7 +72,8 @@ plugins=(git tmux tmuxinator conda-zsh-completion)
 
 source $ZSH/oh-my-zsh.sh
 
-autoload -U compinit && compinit
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
 
 # User configuration
 
@@ -120,7 +121,7 @@ unset __conda_setup
 export PATH=/home/robert/.gem/bin:/snap/bin:$PATH
 export EDITOR=nano
 source <(kubectl completion zsh)
-
+complete -C '/usr/local/bin/aws_completer' aws
 
 # activate the conda environment for the current directory name
 function ce() {
