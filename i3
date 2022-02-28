@@ -217,7 +217,7 @@ exec /snap/bin/discord
 exec /snap/bin/slack
 # exec /usr/bin/virtualbox
 exec /usr/bin/pavucontrol
-exec /usr/bin/blueman-manager
+# exec /usr/bin/blueman-manager
 
 workspace_layout tabbed
 
@@ -226,14 +226,14 @@ for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enabl
 for_window [class="zoom" instance="zoom"] floating enable
 for_window [class="Ardour-6.9.0" instance="ardour-6.9.0"] floating enable
 
-# class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
-client.background       #F8F8F2
+client.background       #ffffff
 
 bar {
         colors {
