@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:$PATH
+
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/robert/.oh-my-zsh"
@@ -68,12 +70,14 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux tmuxinator conda-zsh-completion)
+plugins=(conda-zsh-completion git poetry tmux tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
+
+eval "$(rbenv init -)"
 
 # User configuration
 
