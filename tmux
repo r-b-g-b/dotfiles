@@ -1,3 +1,7 @@
+unbind-key C-b
+set -g prefix 'C-O'
+bind-key 'C-O' send-prefix
+
 set-option -g default-shell /bin/zsh
 set-option -g renumber-windows on
 set-option -g word-separators " \/,-_+:=?"
