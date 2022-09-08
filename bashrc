@@ -138,3 +138,8 @@ unset __conda_setup
 export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH="$HOME/.cask/bin:$PATH"
+
+alias docker-compose=docker compose
+
+/usr/bin/keychain $HOME/.ssh/id_rsa
+source $HOME/.keychain/$HOSTNAME-sh
