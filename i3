@@ -146,7 +146,7 @@ bindsym $mod+Shift+n move workspace to output left
 bindsym $mod+Shift+m move workspace to output right
 
 # lock screen
-bindsym $mod+Shift+z exec i3lock -t -u -i ~/Pictures/Wallpapers/HG_2.png
+bindsym $mod+Shift+z exec i3lock -c 000000
 
 # background image
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/HG_3.png
@@ -197,26 +197,24 @@ workspace 9 output HDMI-0
 workspace 10 output DVI-D-0
 
 assign [class="Emacs"] $ws1
-assign [class="Insomnia"] $ws1
 assign [class="Gnome-terminal"] $ws2
 assign [class="Matplotlib"] $ws2
 assign [class="KeePassXC"] $ws6
 assign [class="Signal"] $ws7
 assign [class="discord"] $ws7
 assign [class="Slack"] $ws8
-assign [class="VirtualBox Manager"] $ws9
 assign [class="com-sonicwall-NetExtender"] $ws9
+assign [class="VirtualBox Manager"] $ws9
 assign [class="Pavucontrol"] $ws10
 assign [class="Blueman-manager"] $ws10
 
 exec /usr/bin/gnome-terminal
 exec /usr/local/bin/emacs
-# exec /snap/bin/insomnia
 exec /snap/bin/keepassxc
 exec /usr/bin/signal-desktop
 exec /snap/bin/discord
 exec /snap/bin/slack
-# exec /usr/bin/virtualbox
+
 exec /usr/bin/pavucontrol
 # exec /usr/bin/blueman-manager
 
