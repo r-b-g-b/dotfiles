@@ -240,21 +240,20 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 bar {
-        colors {
+    colors {
         background #2f343f
-        statusline #2f343f
+        # statusline #2f343f
         separator #4b5262
 
         # colour of border, background, and text
         focused_workspace       #2f343f #bf616a #d8dee8
         active_workspace        #2f343f #2f343f #d8dee8
         inactive_workspace      #2f343f #2f343f #d8dee8
-        urgent_workspacei       #2f343f #ebcb8b #2f343f
+        urgent_workspace        #2f343f #ebcb8b #2f343f
     }
-        status_command i3status
+    status_command i3status
 }
 
-# bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu'"
 bindsym $mod+d exec "rofi -show drun"
 
 exec xrandr --output DVI-D-0 --right-of HDMI-0 --auto
