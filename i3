@@ -31,7 +31,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Notifications
-exec --no-startup-id dunst
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -228,6 +228,7 @@ for_window [instance="Pd-L2Ork"] floating enable
 for_window [class="zoom" instance="zoom"] floating enable
 for_window [title="Zoom Cloud Meetings"] floating enable
 for_window [title="Chat"] floating enable resize set 640 720
+for_window [title="Pyo Server"] floating enable
 
 
 # class                 border  backgr. text    indicator child_border
