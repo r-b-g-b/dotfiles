@@ -48,3 +48,28 @@ Expunge Both
 SyncState *
 MaxMessages 1000
 ExpireUnread no
+
+IMAPAccount drivendata
+Host imap.gmail.com
+User robert@drivendata.org
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine drivendata.org login robert/ {print $NF}'"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore drivendata-remote
+Account drivendata
+
+MaildirStore drivendata-local
+Subfolders Verbatim
+Path ~/.mail/drivendata/
+Inbox ~/.mail/drivendata/Inbox
+
+Channel drivendata
+Master :drivendata-remote:
+Slave :drivendata-local:
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail" "[Gmail]/Trash"
+Create Both
+# Expunge Both
+SyncState *
+# MaxMessages 1000
+ExpireUnread no
