@@ -257,4 +257,4 @@ bar {
 
 bindsym $mod+d exec "rofi -show drun"
 
-exec xrandr --output DVI-D-0 --right-of HDMI-0 --auto
+exec xrandr --output DVI-D-0 --right-of HDMI-0 --rotate right --auto
