@@ -26,6 +26,20 @@ font pango:DejaVu Sans Mono 8
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Configure 5px of space between windows and to the screen edges.
+gaps inner 10px
+
+# Configure an additional 5px of extra space to the screen edges,
+# for a total gap of 10px to the screen edges, and 5px between windows.
+gaps outer 10px
+
+# Overwrite gaps to 0, I need all the space I can get on workspace 3.
+# workspace 1 gaps inner 0
+# workspace 1 gaps outer 0
+
+# Only enable outer gaps when there is exactly one window or split container on the workspace.
+# smart_gaps inverse_outer
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -185,28 +199,29 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-workspace 1 output HDMI-0
-workspace 2 output DVI-D-0
-workspace 3 output HDMI-0
-workspace 4 output DVI-D-0
-workspace 5 output HDMI-0
-workspace 6 output DVI-D-0
-workspace 7 output HDMI-0
-workspace 8 output DVI-D-0
-workspace 9 output HDMI-0
-workspace 10 output DVI-D-0
+workspace 1 output DP-5
+workspace 2 output HDMI-0
+workspace 3 output DP-5
+workspace 4 output HDMI-0
+workspace 5 output DP-5
+workspace 6 output HDMI-0
+workspace 7 output DP-5
+workspace 8 output HDMI-0
+workspace 9 output DP-5
+workspace 10 output HDMI-0
 
 assign [class="Emacs"] $ws1
-assign [class="Gnome-terminal"] $ws2
+assign [class="Gnome-terminal"] $ws1
 assign [class="Matplotlib"] $ws2
-assign [class="KeePassXC"] $ws6
+# assign [class="Microsoft-edge"] $ws3
+assign [class="KeePassXC"] $ws5
 assign [class="Signal"] $ws7
 assign [class="discord"] $ws7
-assign [class="Slack"] $ws8
-assign [class="com-sonicwall-NetExtender"] $ws9
-assign [class="VirtualBox Manager"] $ws9
-assign [class="Pavucontrol"] $ws10
-assign [class="Blueman-manager"] $ws10
+assign [class="Slack"] $ws7
+assign [class="com-sonicwall-NetExtender"] $ws6
+assign [class="VirtualBox Manager"] $ws6
+assign [class="Pavucontrol"] $ws9
+assign [class="Blueman-manager"] $ws9
 
 exec /usr/bin/gnome-terminal
 exec /usr/local/bin/emacs
@@ -220,9 +235,11 @@ exec /usr/bin/pavucontrol
 
 workspace_layout tabbed
 
-for_window [class="qjackctl" instance="qjackctl"] floating enable
+for_window [instance="qjackctl"] floating enable
+for_window [class="SonoBus"] floating enable
+for_window [class="Matplotlib"] floating enable
 for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
-for_window [class="Ardour-6.9.0" instance="ardour-6.9.0"] floating enable move position center
+for_window [class="Ardour-7.4.0" instance="ardour-7.4.0"] floating enable move position center
 for_window [instance="Pd-L2Ork"] floating enable
 
 for_window [class="zoom" instance="zoom"] floating enable
@@ -232,9 +249,9 @@ for_window [title="Pyo Server"] floating enable
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #aaaaaa #222222 #888888 #292d2e   #222222
+client.focused          #c38570 #c38570 #0d254b #2e9ef4   #c38570
+client.focused_inactive #0d254b #0d254b #859aba #484e50   #0d254b
+client.unfocused        #859aba #859aba #0d254b #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
@@ -242,14 +259,14 @@ client.background       #ffffff
 
 bar {
     colors {
-        background #2f343f
+        background #859aba
         # statusline #2f343f
         separator #4b5262
 
         # colour of border, background, and text
-        focused_workspace       #2f343f #bf616a #d8dee8
+        focused_workspace       #2f343f #c38570 #0d254b
         active_workspace        #2f343f #2f343f #d8dee8
-        inactive_workspace      #2f343f #2f343f #d8dee8
+        inactive_workspace      #2f343f #859aba #0d254b
         urgent_workspace        #2f343f #ebcb8b #2f343f
     }
     status_command i3status
@@ -257,4 +274,4 @@ bar {
 
 bindsym $mod+d exec "rofi -show drun"
 
-exec xrandr --output DVI-D-0 --right-of HDMI-0 --rotate right --auto
+exec xrandr --output DP-5 --left-of HDMI-0 --rotate left --auto

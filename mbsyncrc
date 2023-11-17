@@ -1,28 +1,28 @@
-IMAPAccount sdf
-Host mx.sdf.org
-User rbgb
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine sdf.org login rbgb/ {print $NF}'"
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
+# IMAPAccount sdf
+# Host mx.sdf.org
+# User rbgb
+# PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine sdf.org login rbgb/ {print $NF}'"
+# SSLType IMAPS
+# CertificateFile /etc/ssl/certs/ca-certificates.crt
 
-IMAPStore sdf-remote
-Account sdf
+# IMAPStore sdf-remote
+# Account sdf
 
-MaildirStore sdf-local
-SubFolders Verbatim
-Path ~/.mail/sdf/
-Inbox ~/.mail/sdf/Inbox
+# MaildirStore sdf-local
+# SubFolders Verbatim
+# Path ~/.mail/sdf/
+# Inbox ~/.mail/sdf/Inbox
 
-Channel sdf
-Master :sdf-remote:
-Slave :sdf-local:
-Patterns *
-# Automatically create missing mailboxes, both locally and on the server
-Create Both
-# Sync the movement of messages between folders and deletions, add after making sure the sync works
-Expunge Both
-# Save the synchronization state files in the relevant directory
-SyncState *
+# Channel sdf
+# Master :sdf-remote:
+# Slave :sdf-local:
+# Patterns *
+# # Automatically create missing mailboxes, both locally and on the server
+# Create Both
+# # Sync the movement of messages between folders and deletions, add after making sure the sync works
+# Expunge Both
+# # Save the synchronization state files in the relevant directory
+# SyncState *
 
 IMAPAccount galileo
 Host imap.gmail.com
@@ -46,7 +46,7 @@ Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail" "[
 Create Both
 Expunge Both
 SyncState *
-MaxMessages 1000
+# MaxMessages 1000
 ExpireUnread no
 
 IMAPAccount drivendata
@@ -71,5 +71,5 @@ Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail" "[
 Create Both
 Expunge Both
 SyncState *
-MaxMessages 1000
+# MaxMessages 1000
 ExpireUnread no

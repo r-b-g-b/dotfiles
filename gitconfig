@@ -1,17 +1,38 @@
 [core]
 	excludesfile = /home/robert/.gitignore
+        pager = delta
+
 [credential]
 	helper = cache --timeout=3600
+
+[delta]
+        navigate = true
+        light = false
+
+[diff]
+        colorMoved = default
+
 [init]
 	defaultBranch = main
+
+[interactive]
+        diffFilter = delta --color-only
+
+[merge]
+        conflictstyle = diff3
+
 [pager]
 	branch = false
+
 [status]
 	showuntrackedfiles = normal
+
 [user]
 	email = robert@drivendata.org
 	name = Robert Gibboni
+
 [gpg]
 	program = gpg2
+
 [github]
 	user = r-b-g-b

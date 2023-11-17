@@ -1,0 +1,33 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        markup = pango
+        interval = 2
+        color_good = '#859aba'
+	color_degraded = '#ebcb8b'
+	color_bad = '#ba5e57'
+}
+
+order = []
+order += "disk /"
+order += "disk /home"
+order += "ethernet enp6s0"
+order += "tztime local"
+
+disk "/" {
+        format = "<span background='#859aba' foreground='#0d254b'>  %free Free </span>"
+}
+
+disk "/home" {
+        format = "<span background='#859aba' foreground='#0d254b'>  %free Free </span>"
+}
+
+ethernet enp6s0 {
+        format_up = "<span background='#859aba' foreground='#0d254b'>  %ip </span>"
+        format_down = "<span background='#1a4858'>  Disconnected </span>"
+}
+
+tztime local {
+       format = "<span background='#859aba' foreground='#0d254b'> %time </span>"
+       format_time = "%a %e %b %Y %r"
+}
