@@ -235,8 +235,6 @@ exec /usr/bin/pavucontrol
 
 workspace_layout tabbed
 
-for_window [instance="qjackctl"] floating enable
-for_window [class="SonoBus"] floating enable
 for_window [class="Matplotlib"] floating enable
 for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
 for_window [class="Ardour-7.4.0" instance="ardour-7.4.0"] floating enable move position center
