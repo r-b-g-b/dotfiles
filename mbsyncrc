@@ -1,75 +1,127 @@
-# IMAPAccount sdf
-# Host mx.sdf.org
-# User rbgb
-# PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine sdf.org login rbgb/ {print $NF}'"
-# SSLType IMAPS
-# CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-# IMAPStore sdf-remote
-# Account sdf
-
-# MaildirStore sdf-local
-# SubFolders Verbatim
-# Path ~/.mail/sdf/
-# Inbox ~/.mail/sdf/Inbox
-
-# Channel sdf
-# Master :sdf-remote:
-# Slave :sdf-local:
-# Patterns *
-# # Automatically create missing mailboxes, both locally and on the server
-# Create Both
-# # Sync the movement of messages between folders and deletions, add after making sure the sync works
-# Expunge Both
-# # Save the synchronization state files in the relevant directory
-# SyncState *
-
+# Galileo
 IMAPAccount galileo
 Host imap.gmail.com
 User galileo@gmail.com
 PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine mail.google.com login galileo/ {print $NF}'"
+AuthMechs LOGIN
 SSLType IMAPS
+SSLVersions TLSv1.2
 CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore galileo-local
+Path ~/.mail/galileo/
+Inbox ~/.mail/galileo/Inbox
+SubFolders Verbatim
 
 IMAPStore galileo-remote
 Account galileo
 
-MaildirStore galileo-local
-Subfolders Verbatim
-Path ~/.mail/galileo/
-Inbox ~/.mail/galileo/Inbox
-
-Channel galileo
-Master :galileo-remote:
-Slave :galileo-local:
-Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail" "[Gmail]/Trash"
+Channel galileo-inbox
+Far :galileo-remote:"INBOX"
+Near :galileo-local:"INBOX"
+CopyArrivalDate yes
 Create Both
 Expunge Both
 SyncState *
-# MaxMessages 1000
+MaxMessages 500
 ExpireUnread no
 
+Channel galileo-trash
+Far :galileo-remote:"[Gmail]/Trash"
+Near :galileo-local:"Trash"
+CopyArrivalDate yes
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 500
+ExpireUnread no
+
+Channel galileo-spam
+Far :galileo-remote:"[Gmail]/Spam"
+Near :galileo-local:"Spam"
+CopyArrivalDate yes
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 500
+ExpireUnread no
+
+Channel galileo-all
+Far :galileo-remote:"[Gmail]/All Mail"
+Near :galileo-local:"Archive"
+CopyArrivalDate yes
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 500
+ExpireUnread no
+
+Group galileo
+Channel galileo-inbox
+Channel galileo-trash
+Channel galileo-all
+Channel galileo-spam
+
+# DrivenData
 IMAPAccount drivendata
 Host imap.gmail.com
 User robert@drivendata.org
 PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine smtp.gmail.com login robert@drivendata.org port 465/ {print $NF}'"
+AuthMechs LOGIN
 SSLType IMAPS
+SSLVersions TLSv1.2
 CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore drivendata-local
+Path ~/.mail/drivendata/
+Inbox ~/.mail/drivendata/Inbox
+SubFolders Verbatim
 
 IMAPStore drivendata-remote
 Account drivendata
 
-MaildirStore drivendata-local
-Subfolders Verbatim
-Path ~/.mail/drivendata/
-Inbox ~/.mail/drivendata/Inbox
-
-Channel drivendata
-Master :drivendata-remote:
-Slave :drivendata-local:
-Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail" "[Gmail]/Trash"
+Channel drivendata-inbox
+Far :drivendata-remote:"INBOX"
+Near :drivendata-local:"INBOX"
+CopyArrivalDate yes
 Create Both
 Expunge Both
 SyncState *
-# MaxMessages 1000
+MaxMessages 500
 ExpireUnread no
+
+Channel drivendata-trash
+Far :drivendata-remote:"[Gmail]/Trash"
+Near :drivendata-local:"Trash"
+CopyArrivalDate yes
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 500
+ExpireUnread no
+
+Channel drivendata-spam
+Far :drivendata-remote:"[Gmail]/Spam"
+Near :drivendata-local:"Spam"
+CopyArrivalDate yes
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 500
+ExpireUnread no
+
+Channel drivendata-all
+Far :drivendata-remote:"[Gmail]/All Mail"
+Near :drivendata-local:"Archive"
+CopyArrivalDate yes
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 500
+ExpireUnread no
+
+Group drivendata
+Channel drivendata-inbox
+Channel drivendata-trash
+Channel drivendata-all
+Channel drivendata-spam
