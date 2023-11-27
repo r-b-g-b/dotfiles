@@ -28,6 +28,5 @@ ethernet enp6s0 {
 }
 
 tztime local {
-       format = "<span background='#859aba' foreground='#0d254b'> %time </span>"
-       format_time = "%a %e %b %Y %r"
+       format = "<span background='#859aba' foreground='#0d254b'> %a %e %b %Y | %r </span>"
 }

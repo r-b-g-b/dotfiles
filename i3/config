@@ -199,29 +199,29 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-workspace 1 output DP-5
-workspace 2 output HDMI-0
-workspace 3 output DP-5
-workspace 4 output HDMI-0
-workspace 5 output DP-5
-workspace 6 output HDMI-0
-workspace 7 output DP-5
-workspace 8 output HDMI-0
-workspace 9 output DP-5
-workspace 10 output HDMI-0
+workspace 1 output DP-1
+workspace 2 output HDMI-1
+workspace 3 output DP-1
+workspace 4 output HDMI-1
+workspace 5 output DP-1
+workspace 6 output HDMI-1
+workspace 7 output DP-1
+workspace 8 output HDMI-1
+workspace 9 output DP-1
+workspace 10 output HDMI-1
 
-assign [class="Emacs"] $ws1
-assign [class="Gnome-terminal"] $ws1
-assign [class="Matplotlib"] $ws2
-# assign [class="Microsoft-edge"] $ws3
-assign [class="KeePassXC"] $ws5
-assign [class="Signal"] $ws7
-assign [class="discord"] $ws7
-assign [class="Slack"] $ws7
-assign [class="com-sonicwall-NetExtender"] $ws6
-assign [class="VirtualBox Manager"] $ws6
-assign [class="Pavucontrol"] $ws9
-assign [class="Blueman-manager"] $ws9
+assign [class="Emacs"] 1
+assign [class="Gnome-terminal"] 1
+assign [class="Matplotlib"] 2
+# assign [class="Microsoft-edge"] 3
+assign [class="KeePassXC"] 5
+assign [class="Signal"] 7
+assign [class="discord"] 7
+assign [class="Slack"] 7
+assign [class="com-sonicwall-NetExtender"] 6
+assign [class="VirtualBox Manager"] 6
+assign [class="Pavucontrol"] 9
+assign [class="Blueman-manager"] 9
 
 exec /usr/bin/gnome-terminal
 exec /usr/local/bin/emacs
@@ -272,4 +272,5 @@ bar {
 
 bindsym $mod+d exec "rofi -show drun"
 
-exec xrandr --output DP-5 --left-of HDMI-0 --rotate left --auto
+exec "xrandr --output DP-1 --left-of HDMI-1 --rotate left --auto"
+# exec --no-startup-id "i3-msg 'workspace 10; append_layout /home/robert/.config/i3/workspace-10.json'"
