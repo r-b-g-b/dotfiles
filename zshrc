@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$HOME/.rbenv/versions/3.1.1/bin:/usr/local/bin:$PATH
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
@@ -10,7 +10,7 @@ export ZSH="/home/robert/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="bira"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(conda-zsh-completion git poetry tmux tmuxinator)
+plugins=(conda-zsh-completion git poetry virtualenv pdm helm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -122,22 +122,14 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH=/home/robert/.gem/bin:/snap/bin:$PATH
+export PATH=/home/robert/.gem/bin:/home/robert/go/bin:/snap/bin:/usr/local/go/bin:$PATH
 export EDITOR=nano
 source <(kubectl completion zsh)
 complete -C '/usr/local/bin/aws_completer' aws
 
-# activate the conda environment for the current directory name
-function ce() {
-  envname=$(basename $(pwd))
-  if [ ! -z $(conda env list | awk '{ print $1 }' | grep -x $envname) ]; then
-    conda activate $envname
-  fi
-}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-alias docker-compose=docker compose
-
 /usr/bin/keychain $HOME/.ssh/id_rsa
 source $HOME/.keychain/$HOST-sh
+
+FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=true
+export PATH=/home/robert/.pixi/bin:$PATH
+eval "$(pixi completion --shell zsh)"
