@@ -1,13 +1,12 @@
-
 {
     // "layer": "top", // Waybar at top layer
      "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 5, // Waybar height (to be removed for auto height)
+    "height": 10, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "backlight","cpu","memory","battery", "battery#bat2", "clock", "tray"],
+    "modules-right": ["custom/pipewire", "network", "backlight", "battery", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -67,7 +66,6 @@
     "clock": {
         "format": "{:%I:%M }",
         "format-alt": "{:%Y-%m-%d}"
-      
     },
     "cpu": {
         "format": "{usage}% ",
@@ -86,8 +84,15 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% ",
+        "format": " {percent}% ",
         "format-icons": ["", ""]
+    },
+    "custom/pipewire": {
+        "tooltip": false,
+        "max-length": 8,
+        "exec": "$HOME/.config/waybar/scripts/pipewire.sh",
+        "on-click": "pavucontrol",
+        "on-click-right": "helvum"
     },
     "battery": {
         "states": {
@@ -95,24 +100,22 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% ",
-        "format-charging": "{capacity}%",
-        "format-plugged": "{capacity}%",
+        "format": "🔋 {capacity}% ",
+        "format-charging": "🔌 {capacity}%",
+        "format-plugged": "🔌 {capacity}%",
         "format-alt": "{time} ",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         // "format-icons": ["", "", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": " {essid} ({signalStrength}%)",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "swaymsg exec 'foot --app-id nmtui -e nmtui'"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -120,7 +123,7 @@
         "format-bluetooth": "{volume}%  {format_source}",
         "format-bluetooth-muted": " {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "on-click": "pavucontrol"
     },

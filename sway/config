@@ -237,16 +237,7 @@ bindsym $mod+r mode "resize"
 
 
 bar {
-    position bottom
-    status_command while ~/.config/sway/status.sh; do sleep 0.1; done
-
-    colors {
-        # Text color of status bar
-        statusline #ffffff
-        # Background of status bar
-        background #323232
-    }
-    font pango:JetBrains Mono Regular 12
+    swaybar_command waybar
 }
 
 font pango:JetBrains Mono Regular 10
@@ -266,6 +257,8 @@ gaps outer 10
 gaps top 10
 gaps bottom 10
 smart_gaps on
+
+for_window [app_id="nmtui"] floating enable, resize set 32ppt 48ppt
 
 exec swayidle -w \
 	timeout 1800 'swaylock -f' \
