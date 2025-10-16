@@ -4,8 +4,8 @@ Host imap.gmail.com
 User galileo@gmail.com
 PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine mail.google.com login galileo/ {print $NF}'"
 AuthMechs LOGIN
-SSLType IMAPS
-SSLVersions TLSv1.2
+TLSType IMAPS
+TLSVersions +1.2 +1.3
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore galileo-local
@@ -68,8 +68,8 @@ Host imap.gmail.com
 User robert@drivendata.org
 PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine smtp.gmail.com login robert@drivendata.org port 465/ {print $NF}'"
 AuthMechs LOGIN
-SSLType IMAPS
-SSLVersions TLSv1.2
+TLSType IMAPS
+TLSVersions +1.2 +1.3
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore drivendata-local
